@@ -1,4 +1,4 @@
-:root {
+:root { 
     --blanco: #ffffff;
     --oscuro: #212121;
     --primaria: #ffc107;
@@ -7,16 +7,21 @@
     --grisClaro: #dfe9f3;
 }
 
-/* GLOBALES  */
+/* 
+* GLOBALES  
+*/
 
 html{
     font-size: 62.5%;
 }
 body{
     font-size: 16px;
+    font-family: 'Krub', sans-serif;
 }
 
-/* TIPOGRAFIAS */
+/* 
+*TIPOGRAFÍAS 
+*/
 h1{
     font-size: 3.8rem;
 }
@@ -30,8 +35,22 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* UTILIDADES */
+/* 
+* UTILIDADES 
+*/
 
 .titulo span {
     font-size: 2rem;
+}
+/* NT: ESTILOS DE NAVEGACIÓN  */
+.contenedor {
+    width: 128rem;
+    margin: 0 auto;
+}
+.navegacion-principal {
+    /* *! El siguiente codigo se elimina y se coloca en .nav-bg  */
+    /* background-color: var(--secundario); */
+}
+.nav-bg {
+    background-color: var(--secundario);
 }
