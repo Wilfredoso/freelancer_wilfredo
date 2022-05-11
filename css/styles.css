@@ -35,22 +35,35 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* 
-* UTILIDADES 
-*/
-
 .titulo span {
     font-size: 2rem;
 }
-/* NT: ESTILOS DE NAVEGACIÓN  */
+/* NT: ESTILOS DE NAVEGACIÓN se usa enfoque Modulo */
 .contenedor {
     width: 128rem;
     margin: 0 auto;
 }
-.navegacion-principal {
+.navegacion-principal { 
     /* *! El siguiente codigo se elimina y se coloca en .nav-bg  */
     /* background-color: var(--secundario); */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
-.nav-bg {
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.navegacion-principal a:hover {
+    color: var(--primaria);
+}
+
+/* * Enfoque Utilidad */
+.nav-bg { 
     background-color: var(--secundario);
 }
+
+/* *? Diseño de Responsive Web Design y Media Queries */
