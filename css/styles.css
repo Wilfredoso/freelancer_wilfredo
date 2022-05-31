@@ -1,14 +1,14 @@
-:root { 
+:root {
     --blanco: #ffffff;
     --oscuro: #212121;
-    --primaria: #ffc107;
+    --primario: #ffc107;
     --secundario: #0097a7;
     --gris: #757575;
     --grisClaro: #dfe9f3;
 }
 
-/* 
-* GLOBALES  
+/*
+* GLOBALES
 */
 
 html{
@@ -19,8 +19,8 @@ body{
     font-family: 'Krub', sans-serif;
 }
 
-/* 
-*TIPOGRAFÍAS 
+/*
+*TIPOGRAFÍAS
 */
 h1{
     font-size: 3.8rem;
@@ -35,35 +35,56 @@ h1, h2, h3 {
     text-align: center;
 }
 
+.titolo {
+    text-align: center;
+    font-size: 3.8rem;
+}
 .titulo span {
     font-size: 2rem;
 }
+/* * Enfoque Utilidad */
+.nav-bg {
+    background-color: var(--secundario);
+}
+
 /* NT: ESTILOS DE NAVEGACIÓN se usa enfoque Modulo */
 .contenedor {
-    width: 128rem;
+    /* width: 120rem; */  /* !se elimina por esto obliga que se utilice 1200px cuando aplicamos media querie */
+    max-width: 120rem;  /* * Estamos indicando que tome 1200px si hay espacio y si no que tomos el 10% de div  */
     margin: 0 auto;
 }
-.navegacion-principal { 
+.navegacion-principal {
     /* *! El siguiente codigo se elimina y se coloca en .nav-bg  */
     /* background-color: var(--secundario); */
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+    /* padding: 1rem; */ /* *! EL padding se elimina de aqui */
+    /* display: flex; */ /* !Eliminamos porque estamos utilizando el display en .navegacion-principal a */
+    /* justify-content: space-between; */  /* *!Se elimina para aplicar media querie */
+    /* flex-direction: column; */ /* !Eliminamos porque estamos utilizando text-align:center en .navegacion-principal a */
+    /*align-items: center; */  /* @m usar esto es meterse a los ejes de flex por ello utilizaremos en .navegacion-principal a */
+
 }
+/* *? Diseño de Responsive Web Design (Media Queries) de Navegación */
+@media (min-width: 480px) {
+    .navegacion-principal{
+        display: flex; /* * ponemos aquí porque se ha eliminado de navegacion-principal */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 .navegacion-principal a {
+    display: block;  /* @m utilizamos aquí la alineación de los menus  */
+    text-align: center;
     color: var(--blanco);
     text-decoration: none;
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
+    padding: 1rem;  /* *TODO se coloca aquí para que ocupe todo el espacios hacia arriba y abajo */
 }
 .navegacion-principal a:hover {
-    color: var(--primaria);
-}
+    background-color: var(--primario);
+    color: var(--oscuro);
+    border: 0;
 
-/* * Enfoque Utilidad */
-.nav-bg { 
-    background-color: var(--secundario);
 }
-
-/* *? Diseño de Responsive Web Design y Media Queries */
