@@ -12,11 +12,18 @@
 */
 
 html{
-    font-size: 62.5%;
+    font-size: 62.5%;  /* obligatorio */
+    box-sizing: border-box; /* obligatorio */
 }
+*, *:before, *:after {  /* obligatorio */
+    box-sizing: inherit;
+}
+
 body{
     font-size: 16px;
     font-family: 'Krub', sans-serif;
+    /* background-image: linear-gradient(to top, #DFE9F3 0%, var(--blanco) 100%); */
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100% );
 }
 
 /*
@@ -35,11 +42,15 @@ h1, h2, h3 {
     text-align: center;
 }
 
-.titolo {
-    text-align: center;
-    font-size: 3.8rem;
-}
-.titulo span {
+/* 
+!se elimina la clase titulo porque una de las formas de escribir codigo css 
+! es escribiendo de los mas general de selectores a lo mas especifico 
+ */
+/* .titolo {
+    text-align: center; --> solo esta en una sola regla arriba h1, h2, h3 {}
+    font-size: 3.8rem; --> el tamaño esta en cada h1,h2,h3
+} */
+.titulo span { 
     font-size: 2rem;
 }
 /* * Enfoque Utilidad */
@@ -51,7 +62,7 @@ h1, h2, h3 {
 .contenedor {
     /* width: 120rem; */  /* !se elimina por esto obliga que se utilice 1200px cuando aplicamos media querie */
     max-width: 120rem;  /* * Estamos indicando que tome 1200px si hay espacio y si no que tomos el 10% de div  */
-    margin: 0 auto;
+    margin: 0 auto;     /* las dos lineas son las que definen el area de la pagina web */
 }
 .navegacion-principal {
     /* *! El siguiente codigo se elimina y se coloca en .nav-bg  */
@@ -61,19 +72,18 @@ h1, h2, h3 {
     /* justify-content: space-between; */  /* *!Se elimina para aplicar media querie */
     /* flex-direction: column; */ /* !Eliminamos porque estamos utilizando text-align:center en .navegacion-principal a */
     /*align-items: center; */  /* @m usar esto es meterse a los ejes de flex por ello utilizaremos en .navegacion-principal a */
-
 }
 /* *? Diseño de Responsive Web Design (Media Queries) de Navegación */
 @media (min-width: 480px) {
     .navegacion-principal{
-        display: flex; /* * ponemos aquí porque se ha eliminado de navegacion-principal */
+        display: flex; /* *ponemos aquí porque se ha eliminado de navegacion-principal */
         flex-direction: row;
         justify-content: space-between;
     }
 }
 
 .navegacion-principal a {
-    display: block;  /* @m utilizamos aquí la alineación de los menus  */
+    display: block;  /* @m utilizamos aquí la alineación de los menus  en columna*/
     text-align: center;
     color: var(--blanco);
     text-decoration: none;
@@ -87,4 +97,74 @@ h1, h2, h3 {
     color: var(--oscuro);
     border: 0;
 
+}
+
+/* NT: ESTILOS PARA SECCIÓN DE HERO IMAGEN DE FONDO */
+.hero {
+    position: relative;
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;  
+    height: 450px;
+    /* padding: 20px;  */ /* ! se elimina porque afecta en el alto de la calse padre */
+    margin-bottom: 2rem; /* se añade para que tenga margen entre hero y main sombra */
+}
+.contenido-hero {
+    position: absolute;
+    background-color: rgb(0 0 0 /70%);  /* *? es para la transparencia */
+    /* background-color: red;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    right: 0; */
+    width: 100%;  /* *? es para que ocupe el espacio total que dispone el padre */
+    height: 100%;
+    display: flex; /* *lo siguiente se utiliza para centrar los elementos dentro esta caja */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2, .ubicacion p {
+    color: var(--blanco);
+}
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;  /* es para aplicar media query */ 
+    text-align: center; /* centramos el botón en 90% de ancho */
+} 
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+} 
+
+/* NT: SOMBREADO DE AREA PRINCIPAL */
+/* antes de aplicar este sombreado se debe establecer un gradiente en el selector BODY */
+.sombra {
+    box-shadow: 0px 5px 10px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* NT: DAR ESTILOS AL MAIN  */
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /* grid-template-columns: 300px 250px;
+        grid-template-rows: 200px 600px; */
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
